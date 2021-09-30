@@ -17,7 +17,7 @@ class MovieDetailsPage extends Component {
         `https://api.themoviedb.org/3/movie/${id}?api_key=207c2cd605bda22c2345988002ae47b0&language=en-US`
       );
       const data = await response.json();
-      //   console.log(data);
+      // console.log(data);
       this.setState({ detailedInfo: data, back: this.props.location.state });
     } catch (error) {}
   }

@@ -5,7 +5,8 @@ import styles from "../pages/MoviesPage.module.css";
 class MoviesPage extends Component {
   state = {
     query: "",
-    findMovies: []
+    findMovies: [],
+    detailedInfo: {}
   };
 
   componentDidMount() {
@@ -42,6 +43,7 @@ class MoviesPage extends Component {
   };
 
   render() {
+    const { poster_path, title, release_date, vote_average, overview, genres } = this.state.detailedInfo;
     return (
       <div className={styles.moviesPage}>
         <h1>Welcome.</h1>
@@ -59,15 +61,44 @@ class MoviesPage extends Component {
           <button type="submit">Search</button>
         </form>
 
-        <ul>
-          {this.state.findMovies.map(movie => (
-            <li key={movie.id}>
+        {this.state.findMovies.map(movie => (
+          <div className={styles.foundMoviesContainer} key={movie.id}>
+            <Link
+              className={styles.foundMoviesLink}
+              to={{ pathname: `/movies/${movie.id}`, state: { from: "/movies", query: this.state.query } }}
+            >
+              <h3 className={styles.foundMovieTitle}>{movie.title}</h3>
+            </Link>
+
+            <div className={styles.individualPosterContainer} key={movie.id}>
               <Link to={{ pathname: `/movies/${movie.id}`, state: { from: "/movies", query: this.state.query } }}>
-                {movie.title}
+                <img
+                  className={styles.individualPoster}
+                  src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                  alt={movie.title}
+                />
               </Link>
-            </li>
-          ))}
-        </ul>
+              <div className={styles.scoreContainer} key={movie.id}>
+                {movie.vote_average ? <p className={styles.score}>{movie.vote_average}</p> : null}
+              </div>
+              <div className={styles.dateContainer} key={movie.key}>
+                {movie.popularity ? (
+                  <p className={styles.popularity}>Popularity: {movie.popularity.toFixed(2)}</p>
+                ) : (
+                  <p className={styles.mediaType}>Not defined</p>
+                )}
+                {movie.release_date ? <p className={styles.releaseDate}>Release date: {parseInt(movie.release_date)}</p> : null}
+              </div>
+              <div className={styles.overviewContainer}>
+                {movie.overview ? (
+                  <p className={styles.overviewText}>{movie.overview}</p>
+                ) : (
+                  <p className={styles.overviewText}>There is no overview to this movie</p>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     );
   }
