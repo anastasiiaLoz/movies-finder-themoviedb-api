@@ -30,7 +30,7 @@ class Reviews extends Component {
             </li>
           ))
         ) : (
-          <p>We don't have any review for this movie. It's boring anyway</p>
+          <p>We don't have any review for this movie.</p>
         )}
       </ul>
     );

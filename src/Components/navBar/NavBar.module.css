@@ -1,0 +1,21 @@
+.navBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 150px;
+  text-decoration: none;
+  background-color: black;
+  margin: 0;
+  height: 100px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.navBarLinks {
+  font-weight: 300;
+  font-style: normal;
+  color: white;
+  font-size: 25px;
+  margin-left: 100px;
+  text-decoration: none;
+}

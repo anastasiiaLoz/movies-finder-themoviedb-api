@@ -49,11 +49,14 @@ class MovieDetailsPage extends Component {
               <h3>Not this time, hun:( We've got nothing on this movie's pic</h3>
             )}
           </div>
+          {title ? (
+            <h3>
+              {title} ({parseInt(release_date)})
+            </h3>
+          ) : null}
 
-          <h3>
-            {title} ({parseInt(release_date)})
-          </h3>
-          <p>User Score: {vote_average}</p>
+          {vote_average ? <p>User Score: {vote_average}</p> : <p>User Score: No info on the score</p>}
+
           <h4>Overview</h4>
           <p>{overview}</p>
           <h4>Genres</h4>

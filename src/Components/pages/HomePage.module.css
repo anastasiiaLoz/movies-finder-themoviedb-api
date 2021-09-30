@@ -1,0 +1,32 @@
+.homePage {
+  margin: 60px 150px;
+}
+
+.trendingTitle {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 52px;
+  color: #323232;
+  margin-bottom: 40px;
+}
+
+.trendingList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.trendingMovies img {
+  object-fit: contain;
+  width: 263px;
+  height: 360px;
+  margin-bottom: 40px;
+  border-radius: 9%;
+  transition: transform 0.3s;
+}
+
+li :hover {
+  transform: scale(1.1);
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import styles from "../pages/MoviesPage.module.css";
 
 class MoviesPage extends Component {
   state = {
@@ -42,15 +43,18 @@ class MoviesPage extends Component {
 
   render() {
     return (
-      <>
-        <form className="SearchForm" onSubmit={this.handleSubmit}>
+      <div className={styles.moviesPage}>
+        <h1>Welcome.</h1>
+        <h2>Millions of movies, TV shows and people to discover. Explore now.</h2>
+        <form className={styles.searchForm} onSubmit={this.handleSubmit}>
           <input
+            className={styles.input}
             type="text"
             value={this.state.query}
             onChange={this.handleChange}
             autoComplete="off"
             autoFocus
-            placeholder="Search favourite movie"
+            placeholder="Search your favourite movie"
           />
           <button type="submit">Search</button>
         </form>
@@ -64,7 +68,7 @@ class MoviesPage extends Component {
             </li>
           ))}
         </ul>
-      </>
+      </div>
     );
   }
 }
