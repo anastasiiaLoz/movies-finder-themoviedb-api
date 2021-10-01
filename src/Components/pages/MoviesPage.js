@@ -43,7 +43,6 @@ class MoviesPage extends Component {
   };
 
   render() {
-    const { poster_path, title, release_date, vote_average, overview, genres } = this.state.detailedInfo;
     return (
       <div className={styles.moviesPage}>
         <h1>Welcome.</h1>

@@ -1,0 +1,56 @@
+.goBackButton {
+  width: 100px;
+  height: 45px;
+  border-radius: 15px;
+  border: none;
+  background: #4ea7f9;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0;
+  margin: 15px;
+  cursor: pointer;
+}
+.movieDetailsContainer {
+  position: absolut;
+}
+
+.movieInfo {
+  position: relative;
+  bottom: 450px;
+  left: 400px;
+  width: 800px;
+  height: 100%;
+}
+.movieInfo h3 {
+  font-weight: 900;
+  font-size: 50px;
+}
+.moviePoster {
+  margin-left: 15px;
+  border-radius: 10px;
+}
+
+.movieTitle {
+  margin: 0;
+}
+
+.voteContainer {
+  margin: 15px;
+}
+
+.voteContainer::after {
+  content: "";
+  height: 30px;
+  width: 40px;
+  background-color: #fac539;
+  border-radius: 8px;
+  display: block;
+  position: relative;
+  bottom: 22px;
+  left: 89px;
+  opacity: 0.5;
+}
+.scoreContainer {
+  margin-top: 30px;
+}

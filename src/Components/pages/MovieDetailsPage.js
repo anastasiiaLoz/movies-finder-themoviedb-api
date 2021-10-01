@@ -2,6 +2,7 @@ import React, { Component, Suspense } from "react";
 import { NavLink, Switch, Route } from "react-router-dom";
 import Cast from "./Cast";
 import Reviews from "./Reviews";
+import styles from "../pages/MovieDetailsPage.module.css";
 
 class MovieDetailsPage extends Component {
   state = {
@@ -38,29 +39,35 @@ class MovieDetailsPage extends Component {
     const { poster_path, title, release_date, vote_average, overview, genres } = this.state.detailedInfo;
     return (
       <>
-        <button type="button" onClick={this.handleGoingBack}>
+        <button className={styles.goBackButton} type="button" onClick={this.handleGoingBack}>
           Go Back
         </button>
         <div className="movieDetailsContainer">
-          <div className="movieImg">
-            {poster_path ? (
-              <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt={title} />
+          {poster_path ? (
+            <img className={styles.moviePoster} src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt={title} />
+          ) : (
+            <h3>Not this time, hun:( We've got nothing on this movie's pic</h3>
+          )}
+          <div className={styles.movieInfo}>
+            {title ? (
+              <h3 className={styles.movieTitle}>
+                {title} ({parseInt(release_date)})
+              </h3>
+            ) : null}
+
+            {vote_average ? (
+              <p className={styles.scoreContainer}>
+                User Score: <span className={styles.voteContainer}>{vote_average}</span>
+              </p>
             ) : (
-              <h3>Not this time, hun:( We've got nothing on this movie's pic</h3>
+              <p>User Score: No info on the score</p>
             )}
+
+            <h4>Overview</h4>
+            <p>{overview}</p>
+            <h4>Genres</h4>
+            <ul>{genres && genres.map(({ id, name }) => <li key={id}> {name} </li>)}</ul>
           </div>
-          {title ? (
-            <h3>
-              {title} ({parseInt(release_date)})
-            </h3>
-          ) : null}
-
-          {vote_average ? <p>User Score: {vote_average}</p> : <p>User Score: No info on the score</p>}
-
-          <h4>Overview</h4>
-          <p>{overview}</p>
-          <h4>Genres</h4>
-          <ul>{genres && genres.map(({ id, name }) => <li key={id}> {name} </li>)}</ul>
         </div>
 
         <p>Additional Information</p>
