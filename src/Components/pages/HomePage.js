@@ -23,7 +23,9 @@ class HomePage extends Component {
         <ul className={styles.trendingList}>
           {this.state.trendingMoviesList.map(movie => (
             <li className={styles.trendingMovies} key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>{<img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} />}</Link>
+              <Link to={`/movies/${movie.id}`}>
+                {<img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt={movie.id} />}
+              </Link>
             </li>
           ))}
         </ul>

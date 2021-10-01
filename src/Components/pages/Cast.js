@@ -29,9 +29,9 @@ class Cast extends Component {
             cast.map(({ cast_id, profile_path, name, character }) => (
               <li className={styles.castImage} key={cast_id}>
                 {!profile_path ? (
-                  <img src={image} width="300px" height="450px" />
+                  <img src={image} width="300px" height="450px" alt="No picture found" />
                 ) : (
-                  <img src={`https://image.tmdb.org/t/p/w300/${profile_path}`} />
+                  <img src={`https://image.tmdb.org/t/p/w300/${profile_path}`} alt={name} />
                 )}
                 <p className={styles.castName}>{name}</p>
                 <p className={styles.castCharacter}>Character: {character}</p>

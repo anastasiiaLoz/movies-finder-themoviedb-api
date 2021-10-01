@@ -73,7 +73,7 @@ class MoviesPage extends Component {
             <div className={styles.individualPosterContainer} key={movie.id}>
               <Link to={{ pathname: `/movies/${movie.id}`, state: { from: "/movies", query: this.state.query } }}>
                 {!movie.poster_path ? (
-                  <img src={errorImage} className={styles.individualPoster} />
+                  <img src={errorImage} className={styles.individualPoster} alt="No picture found" />
                 ) : (
                   <img
                     className={styles.individualPoster}
