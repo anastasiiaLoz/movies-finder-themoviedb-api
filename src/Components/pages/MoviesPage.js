@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styles from "../pages/MoviesPage.module.css";
+import errorImage from "../../picture/error.jpeg";
 
 class MoviesPage extends Component {
   state = {
@@ -71,14 +72,18 @@ class MoviesPage extends Component {
 
             <div className={styles.individualPosterContainer} key={movie.id}>
               <Link to={{ pathname: `/movies/${movie.id}`, state: { from: "/movies", query: this.state.query } }}>
-                <img
-                  className={styles.individualPoster}
-                  src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-                  alt={movie.title}
-                />
+                {!movie.poster_path ? (
+                  <img src={errorImage} className={styles.individualPoster} />
+                ) : (
+                  <img
+                    className={styles.individualPoster}
+                    src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                )}
               </Link>
               <div className={styles.scoreContainer} key={movie.id}>
-                {movie.vote_average ? <p className={styles.score}>{movie.vote_average}</p> : null}
+                {movie.vote_average ? <p className={styles.score}>{movie.vote_average}</p> : <p className={styles.score}>0</p>}
               </div>
               <div className={styles.dateContainer} key={movie.key}>
                 {movie.popularity ? (

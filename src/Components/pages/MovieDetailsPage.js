@@ -42,7 +42,7 @@ class MovieDetailsPage extends Component {
         <button className={styles.goBackButton} type="button" onClick={this.handleGoingBack}>
           Go Back
         </button>
-        <div className="movieDetailsContainer">
+        <div className={styles.movieDetailsContainer}>
           {poster_path ? (
             <img className={styles.moviePoster} src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt={title} />
           ) : (
@@ -64,21 +64,21 @@ class MovieDetailsPage extends Component {
             )}
 
             <h4>Overview</h4>
-            <p>{overview}</p>
+            <p className={styles.movieOverview}>{overview}</p>
             <h4>Genres</h4>
-            <ul>{genres && genres.map(({ id, name }) => <li key={id}> {name} </li>)}</ul>
+            <ul className={styles.genresList}>{genres && genres.map(({ id, name }) => <li key={id}> {name} </li>)}</ul>
           </div>
         </div>
 
-        <p>Additional Information</p>
-        <ul className="" key={this.state.id}>
+        <p className={styles.additionalInfo}>Additional Information</p>
+        <ul className={styles.additionalInfoLinks} key={this.state.id}>
           <li>
-            <NavLink className="list" to={`${this.props.match.url}/cast`}>
+            <NavLink className={styles.castLink} to={`${this.props.match.url}/cast`}>
               Cast
             </NavLink>
           </li>
           <li>
-            <NavLink className="list" to={`${this.props.match.url}/reviews`}>
+            <NavLink className={styles.reviewsLink} to={`${this.props.match.url}/reviews`}>
               Reviews
             </NavLink>
           </li>

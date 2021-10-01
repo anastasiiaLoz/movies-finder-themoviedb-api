@@ -27,6 +27,6 @@
   transition: transform 0.3s;
 }
 
-li :hover {
+.trendingMovies :hover {
   transform: scale(1.1);
 }

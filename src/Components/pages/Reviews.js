@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styles from "../pages/Reviews.module.css";
 
 class Reviews extends Component {
   state = {
@@ -13,24 +14,24 @@ class Reviews extends Component {
         `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=207c2cd605bda22c2345988002ae47b0&language=en-US&page=1`
       );
       const data = await response.json();
-      // console.log(data);
+      console.log("reviews", data);
       this.setState({ reviews: data });
     } catch (error) {}
   }
 
   render() {
-    const { content } = this.state.reviews;
+    const { results } = this.state.reviews;
     return (
-      <ul>
-        {content && content.length ? (
-          content.map(({ id, author, content }) => (
-            <li key={id}>
-              <p>{author}:</p>
-              <p>Character: {content}</p>
+      <ul className={styles.reviewsContainer}>
+        {results && results.length ? (
+          results.map(({ id, author, content }) => (
+            <li className={styles.individualReview} key={id}>
+              <p className={styles.reviewAuthor}>{author}:</p>
+              <p className={styles.reviewCharacter}>Review: {content}</p>
             </li>
           ))
         ) : (
-          <p>We don't have any review for this movie.</p>
+          <p className={styles.noReview}>We don't have any review for this movie.</p>
         )}
       </ul>
     );
