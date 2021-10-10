@@ -1,14 +1,13 @@
 .reviewsContainer {
   padding: 30px;
   background: radial-gradient(circle, rgba(112, 112, 112, 0.5480567226890756) 0%, rgba(69, 68, 68, 1) 100%);
+  margin-top: 40px;
 }
 
 .individualReview {
   background: #292828;
   opacity: 0.8;
   border-radius: 10px;
-  height: 530px;
-  width: 300px;
   padding: 30px;
   margin-bottom: 20px;
   height: 100%;

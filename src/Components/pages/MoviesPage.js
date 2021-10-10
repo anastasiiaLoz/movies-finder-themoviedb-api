@@ -97,7 +97,7 @@ class MoviesPage extends Component {
                 {movie.overview ? (
                   <p className={styles.overviewText}>{movie.overview}</p>
                 ) : (
-                  <p className={styles.overviewText}>There is no overview to this movie</p>
+                  <p className={styles.overviewText}>There is no overview on this movie</p>
                 )}
               </div>
             </div>
